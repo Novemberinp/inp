@@ -81,3 +81,6 @@ Route::get('display',function(){
 Route::get("member/info",['uses' => "MemberController@info"]);
 
 Route::get("member/ConnDB",['uses' => "MemberController@ConnDB"]);
+
+Route::get("member/query",['uses' => "MemberController@query"]);
+Route::get("member/queryEdit",['uses' => "MemberController@queryEdit"]);

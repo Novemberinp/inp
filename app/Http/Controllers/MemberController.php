@@ -30,6 +30,42 @@ class MemberController extends Controller{
 		dump($delete);*/
 	}
 
+	public function query(){
+		
+		/*//添加数据
+		$insert = DB::table("member")->insert(
+				['name' => 'Joy','age' => 20,'grade' => 150]
+			);
+		dump($insert);*/
+
+		/*//插入后获取自增id
+		$insertId = DB::table('member')->insertGetId(
+				['name' => 'getId','age' => 20,'grade' => 150]
+			);
+		dump($insertId);*/
+
+		/*//插入多条数据
+		$insertAll = DB::table('member')->insert([
+				['name' => 'insertAll03','age' => 20,'grade' => 150],
+				['name' => 'insertAll04','age' => 20,'grade' => 150],
+			]);
+		dump($insertAll);*/
+	}
+
+	public function queryEdit(){
+		/*//更新数据
+		$update = DB::table('member')->where('id',1)->update(['age' => 88]);
+		dump($update);*/
+
+		//自增和自减
+		//$inadd = DB::table("member")->increment('age',3);      //自增3  默认1       条件是：->where('id',1)
+		//$subtract = DB::table("member")->decrement('age',3);      //自减3  默认1
+		
+		//自增时修改其他字段
+		$inadd = DB::table("member")->where("id",1)->increment('age',3,['name' => '自增']);
+		dump($inadd);
+	}
+
 	public function info(){
 		$return = Member::getMember();
 		dump($return);
