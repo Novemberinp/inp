@@ -66,6 +66,32 @@ class MemberController extends Controller{
 		dump($inadd);
 	}
 
+	public function queryDel(){
+		/*$delete = DB::table('member')->where('id',7)->delete();
+		dump($delete);*/
+		//truncate  清空数据表
+		//DB::table("member")->truncate();
+	}
+
+	public function querySel(){
+		//get   获取表的所有数据
+		//$getSel = DB::table("member")->get();
+		
+		//first   获取第一条数据
+		//$firstSel = DB::table("member")->orderBy('id','desc')->first();
+		
+		//where 多条件   或者where  数组
+		//$whereSel = DB::table("member")->whereRaw("id > ? and age > ?",[4,17])->get();
+		//select('id','name')   返回部分字段
+		
+		//chunk  分段获取
+		DB::table("member")->orderBy("id")->chunk(2,function($member){
+			dump($member);
+		});
+
+		//dump($whereSel);
+	}
+
 	public function info(){
 		$return = Member::getMember();
 		dump($return);
