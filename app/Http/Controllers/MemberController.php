@@ -13,10 +13,21 @@ class MemberController extends Controller{
 	 */
 	public function ConnDB(){
 		$member = DB::select('select * from `member`');
-		var_dump($member);
-		$add = DB::insert("insert into `member` ('name','age') values(?,?)",[
-				
-			]);
+		dump($member);
+
+		/*
+		//新增数据
+		$add = DB::insert("insert into `member` (`name`,`age`,`grade`) values(?,?,?)",[
+				'inp',22,148
+			]);*/
+		/*
+		//修改数据
+		$update = DB::update("update `member` set `age` = ? where id = ?",[99,2]);
+		var_dump($update);*/
+
+		/*//删除
+		$delete = DB::delete("delete from `member` where id = ?",[3]);
+		dump($delete);*/
 	}
 
 	public function info(){
