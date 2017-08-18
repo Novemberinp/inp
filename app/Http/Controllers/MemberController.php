@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Student;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -94,12 +95,16 @@ class MemberController extends Controller{
 
 	public function info(){
 		$return = Member::getMember();
-		dump($return);
+
+        $student = Student::all();
+
 		//return "member-info/Controller";
 		//return view('member-info');
 		return view('member/info',[
 				'name' => 'inp',
-				'age'  => '22'
+				'age'  => '22',
+                'student' => $student,
+                'empty' => array(),
 			]);
 	}
 }
