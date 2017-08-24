@@ -90,3 +90,21 @@ Route::get("student/orm1",['uses' => "StudentController@orm1"]);
 Route::get("student/createOrm",['uses' => "StudentController@createOrm"]);
 Route::get("student/updateOrm",['uses' => "StudentController@updateOrm"]);
 Route::get("student/delOrm",['uses' => "StudentController@delOrm"]);
+Route::get("student/request",['uses' => "StudentController@request"]);
+Route::get("response_one",['uses' => "StudentController@response_one"]);
+Route::get("activityWaiting",['uses' => "StudentController@activityWaiting"]);
+
+Route::group(['middleware' => ['activity']],function (){
+    Route::get("activitying",['uses' => "StudentController@activitying"]);
+    Route::get("activity",['uses' => "StudentController@activity"]);
+});
+
+Route::group(['prefix' => 'form'],function (){
+    Route::any('index',['uses' => 'FormController@index']);
+});
+
+
+Route::group(['middleware' => ['web']],function(){
+    Route::get("session_one",['uses' => "StudentController@session_one"]);
+    Route::get("session_two",['uses' => "StudentController@session_two"]);
+});
